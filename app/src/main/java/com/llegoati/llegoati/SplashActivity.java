@@ -81,6 +81,7 @@ public class SplashActivity extends BaseActivity {
             }
         }else {
             new MyAsyncTask(this).execute();
+            String a = "";
         }
     }
 
