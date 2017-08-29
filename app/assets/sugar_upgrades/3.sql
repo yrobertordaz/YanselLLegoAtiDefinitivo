@@ -1,0 +1,1 @@
+alter table ShoppingCartItem add PRICE DOUBLE;

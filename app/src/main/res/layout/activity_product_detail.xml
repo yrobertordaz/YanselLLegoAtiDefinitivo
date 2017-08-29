@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.llegoati.llegoati.activities.ProductDetailActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_product_detail" />
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/fam_shopping_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_marginBottom="@dimen/origin_10dp"
+        android:layout_marginRight="@dimen/origin_10dp"
+        app:fabSize="mini"
+        app:menu_colorNormal="@color/green_accent"
+        app:menu_colorPressed="@color/green_light"
+        app:menu_icon="@drawable/ic_shopping">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_go_shopping_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/origin_20dp"
+            android:padding="@dimen/origin_8dp"
+            android:src="@drawable/ic_shopping_cart"
+            app:fabSize="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/addToCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/origin_20dp"
+            android:padding="@dimen/origin_8dp"
+            android:src="@drawable/ic_add_shopping_cart"
+            app:fabSize="mini" />
+    </com.github.clans.fab.FloatingActionMenu>
+</android.support.design.widget.CoordinatorLayout>

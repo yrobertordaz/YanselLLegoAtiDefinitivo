@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Llego a ti</string>
+    <string name="address">Dirección</string>
+    <string name="btn_apply">Aplicar</string>
+    <string name="action_activate_contact_text">Activar</string>
+    <string name="Ok">Aceptar</string>
+    <string name="Cancel">Cancelar</string>
+    <string name="action_remove_contact_text">Eliminar</string>
+    <string name="action_settings">Configuración</string>
+    <string name="error_field_required">Este campo es requerido</string>
+    <string name="index_dialog_title">Índice</string>
+    <string name="drawer_item_events">Eventos</string>
+    <string name="tv_province">Provincia</string>
+    <string name="tv_artisan">Artesano/Artista</string>
+    <string name="filter_dialog_title">Filtrar</string>
+    <string name="item_not_available">Debe estar autenticado y online.</string>
+    <string name="action_register">Autenticarse</string>
+    <string name="search_result_title">Resultados para %s</string>
+    <string name="tv_without_messenger">Sin mensajería</string>
+    <string name="tv_active_filter_messenger">Mensajería</string>
+    <string name="tv_with_messenger">Con mensajería</string>
+</resources>

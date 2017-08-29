@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:icon="@mipmap/ic_llego_a_ti_con_artesano"
+        android:title="@string/llegoati_con_artesano"
+        android:menuCategory="container"
+        app:showAsAction="ifRoom" />
+</menu>

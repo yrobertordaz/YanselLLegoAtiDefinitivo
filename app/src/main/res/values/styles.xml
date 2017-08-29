@@ -1,0 +1,63 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.Dialog" parent="Base.Theme.AppCompat.Light.Dialog.FixedSize">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="RatingBar" parent="@android:style/Widget.Material.RatingBar.Small">
+        <item name="colorControlActivated">@color/starActived</item>
+    </style>
+
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/MyCustomTextApparence</item>
+    </style>
+
+    <style name="MyCustomTextApparence" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="CardView.Light.MyCardView" parent="CardView.Light">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:padding">68dp</item>
+    </style>
+
+    <style name="NotificationItem">
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="CardView.Light.MyCardView.MyClickableCardView" parent="CardView.Light.MyCardView">
+
+        <item name="android:clickable">true</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+
+    <style name="CardView.Light.MyCardView.CardViewWithoutElevation" parent="CardView.Light.MyCardView">
+        <item name="android:elevation">0dp</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.Title.ShoppingCart">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:color">@color/black</item>
+        <item name="android:layout_margin">@dimen/component_separator</item>
+    </style>
+</resources>

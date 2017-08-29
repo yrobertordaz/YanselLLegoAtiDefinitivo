@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_marginTop="1dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/adapter_action"
+            android:layout_height="50dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:gravity="left"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:text="N"
+                    android:textSize="15sp"
+                    android:id="@+id/sms_initial"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:background="@drawable/sms_letter"
+                    android:textColor="#fff"
+                    android:layout_height="30dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="Esto es un ejemplo de texto"
+                    android:paddingStart="10dp"
+                    android:id="@+id/sms_initial_text"
+                    android:textSize="12sp"
+                    android:gravity="center_vertical"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="47dp" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/btn_popu"
+        android:layout_width="45sp"
+        android:clickable="true"
+        android:focusable="true"
+        style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_gravity="end|center_vertical"
+        android:src="@drawable/ic_popu"
+        android:alpha="0.8"
+        android:layout_height="45sp" />
+
+</android.support.v7.widget.CardView>

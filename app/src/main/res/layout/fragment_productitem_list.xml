@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_shopping_cart_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clickable="true"
+        android:elevation="@dimen/origin_40dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_shopping_cart_empty"
+            android:layout_width="@dimen/origin_60dp"
+            android:layout_height="@dimen/origin_60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_shopping_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_shopping_cart_empty"
+            android:layout_centerHorizontal="true"
+            android:text="@string/shopping_cart_empyt"
+            android:textColor="@color/indigo"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/list"
+                android:name="com.llegoati.llegoati.activities.ProductItemFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:nestedScrollingEnabled="true"
+                app:layoutManager="LinearLayoutManager"
+                tools:context="com.llegoati.llegoati.fragments.ShoppingCartFragment"
+                tools:listitem="@layout/shopping_cart_item" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_discount_points_title"
+                            style="@style/TextAppearance.AppCompat.Title.ShoppingCart"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tv_discount_points" />
+
+                        <TextView
+                            android:id="@+id/tv_discount_points"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_discount_points_title"
+                            android:layout_marginLeft="@dimen/component_separator"
+                            android:text="@string/tv_discount_points_" />
+
+                        <TextView
+                            android:id="@+id/tv_discount_points_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_discount_points"
+                            android:layout_marginLeft="@dimen/component_separator"
+                            android:layout_marginTop="@dimen/component_separator"
+                            android:text="Consumibles antes de " />
+
+                        <LinearLayout
+                            android:id="@+id/ll_discount_points_controls"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_below="@id/tv_discount_points_date"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:id="@+id/btn_consume_points"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/component_separator"
+                                android:layout_weight="1"
+                                android:background="@drawable/btn_success"
+                                android:text="@string/btn_consume"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/btn_undo_consume_points"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/component_separator"
+                                android:layout_weight="1"
+                                android:background="@drawable/btn_danger"
+                                android:text="@string/btn_undo"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_consume_points_value"
+                                style="@style/TextAppearance.AppCompat.Medium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/component_separator"
+                                android:text="0.00 cuc"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/ll_discount_points_controls"
+                            android:background="@color/gray_light" />
+
+
+                    </RelativeLayout>
+
+                    <!--<RelativeLayout-->
+                    <!--android:id="@+id/rv_discount_point_unavailable"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_alignParentBottom="true"-->
+                    <!--android:layout_alignParentTop="true"-->
+                    <!--android:background="@color/black_transparent"-->
+                    <!--android:clickable="true"-->
+                    <!--android:visibility="gone">-->
+
+                    <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_centerHorizontal="true"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:padding="@dimen/origin_10dp"-->
+                    <!--android:text="Usted debe estar autenticado y online para hacer uso de esta funcionalidad"-->
+                    <!--android:textColor="@color/white" />-->
+
+                    <!--</RelativeLayout>-->
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_discount_lotery_title"
+                            style="@style/TextAppearance.AppCompat.Title.ShoppingCart"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tv_discount_lotery" />
+
+                        <EditText
+                            android:id="@+id/et_discount_lotery"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_discount_lotery_title"
+                            android:layout_marginLeft="@dimen/component_separator"
+                            android:background="@drawable/et_control"
+                            android:hint="@string/et_discount_lotery"
+                            android:minWidth="150dp"
+                            android:padding="@dimen/component_separator" />
+
+
+                        <LinearLayout
+                            android:id="@+id/ll_discount_lotery_controls"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_below="@id/et_discount_lotery"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:id="@+id/btn_apply_discount_lotery"
+                                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/component_separator"
+                                android:layout_weight="1"
+                                android:background="@drawable/btn_success"
+                                android:text="@string/btn_apply"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/btn_undo_apply_discount_lotery"
+                                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/component_separator"
+                                android:layout_weight="1"
+                                android:background="@drawable/btn_danger"
+                                android:text="@string/btn_undo"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_discount_lotery_value"
+                                style="@style/TextAppearance.AppCompat.Medium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/component_separator"
+                                android:text="0.00 cuc"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/ll_discount_lotery_controls"
+                            android:background="@color/gray_light" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:id="@+id/tv_discount_count_title"
+                            style="@style/TextAppearance.AppCompat.Title.ShoppingCart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/component_separator"
+                            android:paddingTop="@dimen/component_separator"
+                            android:text="@string/tv_discount_count" />
+
+
+                        <TextView
+                            android:id="@+id/tv_discount_count"
+                            style="@style/TextAppearance.AppCompat.Medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/component_separator"
+                            android:layout_marginRight="@dimen/component_separator"
+                            android:text="0.00 cuc"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/tv_discount_count_title"
+                            android:background="@color/gray_light" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_discount_vip_title"
+                            style="@style/TextAppearance.AppCompat.Title.ShoppingCart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/component_separator"
+                            android:text="@string/tv_discount_vip" />
+
+                        <TextView
+                            android:id="@+id/tv_discount_vip_note"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_discount_vip_title"
+                            android:layout_marginLeft="@dimen/component_separator"
+                            android:text="El descuento se realiza en cada compra." />
+
+                        <TextView
+                            android:id="@+id/tv_discount_vip_value"
+                            style="@style/TextAppearance.AppCompat.Medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_below="@id/tv_discount_vip_title"
+                            android:layout_gravity="end"
+                            android:layout_margin="@dimen/component_separator"
+                            android:text="0.00 cuc"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/tv_discount_vip_value"
+                            android:background="@color/gray_light" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_partial_cost_title"
+                            style="@style/TextAppearance.AppCompat.Title.ShoppingCart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/component_separator"
+                            android:text="@string/tv_discount_partial" />
+
+
+                        <TextView
+                            android:id="@+id/tv_discount_partial_value"
+                            style="@style/TextAppearance.AppCompat.Medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_below="@id/tv_partial_cost_title"
+                            android:layout_gravity="end"
+                            android:layout_margin="@dimen/component_separator"
+                            android:text="0.00 cuc"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_discount_partial_value_strike"
+                            style="@style/TextAppearance.AppCompat.Medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_partial_cost_title"
+                            android:layout_gravity="end"
+                            android:layout_margin="@dimen/component_separator"
+                            android:layout_toLeftOf="@id/tv_discount_partial_value"
+                            android:text="0.00 cuc" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_gained_points_title1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/component_separator"
+                            android:paddingTop="@dimen/component_separator"
+                            android:text="@string/tv_gained_points_title1" />
+
+                        <TextView
+                            android:id="@+id/tv_gained_points_title2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_gained_points_title1"
+                            android:layout_marginLeft="@dimen/component_separator"
+                            android:paddingTop="@dimen/component_separator"
+                            android:text="@string/tv_gained_points_title2" />
+
+                        <TextView
+                            android:id="@+id/tv_gained_points_title3"
+                            style="@style/TextAppearance.AppCompat.Title.ShoppingCart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_gained_points_title2"
+                            android:layout_marginLeft="@dimen/component_separator"
+                            android:paddingTop="@dimen/component_separator"
+                            android:text="@string/tv_gained_points_title3" />
+
+                        <TextView
+                            android:id="@+id/tv_gained_points_label"
+                            style="@style/TextAppearance.AppCompat.Title.ShoppingCart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_gained_points_title2"
+                            android:layout_marginLeft="@dimen/component_separator"
+                            android:paddingTop="@dimen/component_separator"
+                            android:text="@string/tv_gained_points_title3" />
+
+                        <TextView
+                            android:id="@+id/tv_gained_points_value"
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_gained_points_title2"
+                            android:layout_margin="@dimen/component_separator"
+                            android:layout_toRightOf="@id/tv_gained_points_label"
+                            android:text="40"
+                            android:textColor="@color/red"
+                            android:textSize="28sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/tv_gained_points_title3"
+                            android:layout_marginBottom="@dimen/origin_60dp"
+                            android:background="@color/gray_light" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_discount_unavailable"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/black_transparent"
+                    android:clickable="true"
+                    android:padding="@dimen/origin_20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:padding="@dimen/origin_10dp"
+                        android:text="Usted debe estar autenticado y online para hacer uso de esta funcionalidad"
+                        android:textColor="@color/white" />
+
+                </RelativeLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/origin_60dp"
+        android:layout_gravity="bottom"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/ll_loading_sent_price"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:clickable="true"
+                android:elevation="1dp"
+                android:orientation="horizontal"
+                android:visibility="invisible">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:indeterminate="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/component_separator"
+                    android:text="Cargando..."
+                    android:textColor="@color/black" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Spinner
+                    android:id="@+id/sent_spinner"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Envío"
+                        android:textColor="#000000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/sent_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.00 cuc" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="4dp"
+            android:background="#000000" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Costo Total"
+                android:textAllCaps="true"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/total_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00 cuc"
+                android:textColor="#ff0000"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="15dp"
+        android:src="@android:drawable/ic_menu_send"
+        android:visibility="visible" />
+</FrameLayout>
+

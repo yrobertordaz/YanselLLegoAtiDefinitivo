@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.llegoati.llegoati.explorer.MultiDatabaseActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            app:cardCornerRadius="@dimen/origin_0dp"
+            app:cardElevation="@dimen/origin_1dp"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:padding="0dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+
+
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:padding="5dp"
+                android:text="Pos."
+
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+
+                android:padding="5dp"
+                android:text="Nombre"
+                android:textStyle="bold" />
+
+            <FrameLayout
+                android:layout_width="100dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:padding="10dp"
+                    android:text="Estado"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"
+                    android:layout_height="wrap_content" />
+            </FrameLayout>
+
+
+
+        </LinearLayout>
+        </android.support.v7.widget.CardView>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+
+        android:id="@+id/list_database"
+        android:layout_height="match_parent" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="?attr/actionBarSize"
+        android:src="@drawable/ic_add_circle_outline_black_24dp"
+        android:tint="#fff"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="15dp"
+        android:foregroundGravity="center"
+        android:id="@+id/add_database"
+        android:layout_height="?attr/actionBarSize" />
+</FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

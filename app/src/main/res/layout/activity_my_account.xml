@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--<ImageView-->
+        <!--android:id="@+id/header_cover_image"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--android:visibility="invisible" />-->
+
+
+        <!--<ImageButton-->
+        <!--android:id="@+id/header_cover_image"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:background="@drawable/profile_circular_border_imageview"-->
+        <!--android:elevation="5dp"-->
+        <!--android:padding="20dp"-->
+        <!--android:scaleType="centerCrop" />-->
+
+        <RelativeLayout
+            android:id="@+id/profile_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:elevation="4dp"
+            android:paddingBottom="24dp">
+
+
+            <!--<ImageView-->
+            <!--android:id="@+id/add_friend"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_marginLeft="16dp"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:layout_toLeftOf="@+id/drop_down_option_menu"-->
+            <!--android:src="@drawable/ic_action_user_add" />-->
+
+            <!--<ImageView-->
+            <!--android:id="@+id/drop_down_option_menu"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginLeft="16dp"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:src="@drawable/ic_action_overflow" />-->
+
+            <TextView
+                android:id="@+id/user_profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="@dimen/component_separator"
+                android:textColor="#fff"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/header_cover_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/user_profile_name"
+                android:layout_margin="@dimen/component_separator"
+                android:elevation="5dp"
+                android:padding="@dimen/origin_1dp" />
+
+            <TextView
+                android:id="@+id/user_profile_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/user_profile_name"
+                android:layout_margin="@dimen/component_separator"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/user_profile_vip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/user_profile_email"
+                android:layout_marginLeft="@dimen/component_separator"
+                android:layout_marginRight="@dimen/component_separator"
+                android:layout_marginTop="@dimen/component_separator"
+                android:text="Usuario VIP"
+                android:textColor="@color/yellow_light"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/properties_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profile_layout"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/user_profile_specification"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="#fff"
+                android:clickable="true"
+                android:padding="20dp" />
+
+            <RelativeLayout
+                android:id="@+id/rl_point_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:background="#fff"
+                android:elevation="4dp"
+                android:padding="20dp"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/user_profile_points"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="3dp"
+                    android:clickable="true"
+                    android:paddingRight="8dp"
+                    android:text="20.0"
+                    android:textColor="#ff0000"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/tv_accumulated_cuc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/user_profile_points"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="end"
+                    android:textColor="#ff0000" />
+
+                <TextView
+                    android:id="@+id/tv_accumulated_cuc_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/user_profile_points"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="@dimen/component_separator"
+                    android:layout_toLeftOf="@id/tv_accumulated_cuc"
+                    android:text="@string/text_accumulated_points_cuc" />
+
+                <TextView
+                    android:id="@+id/tv_accumulated_end_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/user_profile_points"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="@dimen/component_separator"
+
+                    android:gravity="end"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_accumulated_end_date_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/user_profile_points"
+                    android:layout_marginTop="@dimen/component_separator"
+                    android:layout_toLeftOf="@id/tv_accumulated_end_date"
+                    android:text="Consumibles antes de:"
+                    android:textColor="#000000" />
+
+
+                <TextView
+                    android:id="@+id/tv_vip_notification"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@id/tv_accumulated_end_date_label"
+                    android:layout_marginTop="@dimen/component_separator"
+                    android:text=""
+                    android:textAllCaps="true"
+                    android:textColor="@color/red" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/user_profile_phone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:background="#fff"
+                android:clickable="true"
+                android:padding="20dp" />
+
+            <!--<TextView-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="5dp"-->
+            <!--android:background="#fff"-->
+            <!--android:clickable="true"-->
+            <!--android:elevation="4dp"-->
+            <!--android:padding="20dp"-->
+            <!--android:text="Android Profile UI Design" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="5dp"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:layout_marginTop="3dp"-->
+            <!--android:background="#fff"-->
+            <!--android:clickable="true"-->
+            <!--android:elevation="4dp"-->
+            <!--android:padding="20dp"-->
+            <!--android:text="Android Profile XMl UI Design" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="5dp"-->
+            <!--android:background="#fff"-->
+            <!--android:clickable="true"-->
+            <!--android:elevation="4dp"-->
+            <!--android:padding="20dp"-->
+            <!--android:text="Android Profile UI Design" />-->
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/component_separator"
+                android:background="@color/colorAccent"
+                android:gravity="center_horizontal"
+                android:text="@string/lotery_history"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_lotery_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="LinearLayoutManager"
+                tools:listitem="@layout/lotery_code_content" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

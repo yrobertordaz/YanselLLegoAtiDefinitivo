@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C8EAFC"
+    android:orientation="vertical"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="8dp">
+
+    <RelativeLayout
+        android:id="@+id/rv_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="#fff"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="30dp">
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etCode"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:drawableLeft="@drawable/ic_check_black"
+                        android:drawableTint="#000000"
+                        android:hint="Código de lotería"
+                        android:inputType="textCapCharacters"
+                        android:maxLines="1" />
+                </android.support.design.widget.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btnEnter"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="22dp"
+                    android:background="#ff6600"
+                    android:text="Comprobar"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textSize="18sp" />
+
+                <TableLayout
+                    android:id="@+id/tl_coupon_information_box"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rv_form"
+                    android:visibility="gone">
+
+                    <TableRow>
+
+                        <TextView
+                            android:text="Categoría"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_category"
+                            android:layout_marginLeft="8dp" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:text="Inicio"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_start_date"
+                            android:layout_marginLeft="8dp"
+                            android:text="asldfkad" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:text="Fin"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_end_date"
+                            android:layout_marginLeft="8dp" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:text="Descuento"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_discount"
+                            android:layout_marginLeft="8dp" />
+                    </TableRow>
+                </TableLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

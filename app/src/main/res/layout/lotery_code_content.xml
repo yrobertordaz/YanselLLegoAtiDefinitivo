@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    style="@style/CardView.Light.MyCardView.MyClickableCardView">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin"
+        card_view:cardUseCompatPadding="true">
+
+        <TextView
+            android:id="@+id/tv_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="Código:"
+            android:textAppearance="@style/MyCustomTextApparence"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_code_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@id/tv_code"
+            android:layout_toRightOf="@id/tv_code"
+            android:text="Valor" />
+
+
+        <TextView
+            android:id="@+id/tv_date_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Valor"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="Fecha de consumo:"
+            android:textAppearance="@style/MyCustomTextApparence"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/tv_date_value" />
+        <!--<TextView-->
+        <!--android:id="@+id/tv_id"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_marginRight="8dp"-->
+        <!--android:layout_toEndOf="@id/tv_date_value"-->
+        <!--android:layout_toRightOf="@id/tv_date_value"-->
+        <!--android:text="ID:"-->
+        <!--android:textAppearance="@style/MyCustomTextApparence"-->
+        <!--android:textStyle="bold" />-->
+        <!--<TextView-->
+        <!--android:id="@+id/tv_id_value"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_toEndOf="@id/tv_id"-->
+        <!--android:layout_toRightOf="@id/tv_id"-->
+        <!--android:text="Valor" />-->
+        <TextView
+            android:id="@+id/tv_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_code"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Rebaja obtenida:"
+            android:textAppearance="@style/MyCustomTextApparence"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_discount_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_code"
+            android:layout_marginTop="16dp"
+            android:layout_toRightOf="@id/tv_discount"
+            android:text="Valor" />
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

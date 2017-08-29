@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:padding="@dimen/origin_10dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/db_position"
+
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="1-"
+
+        android:textSize="15sp"
+        />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:padding="5dp"
+
+        android:text="databaste.bd3"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/db_name"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="20dp"
+            android:padding="10dp"
+            android:background="@drawable/icon_seller"
+            android:backgroundTint="@color/redType"
+            android:layout_gravity="center"
+            android:id="@+id/db_state2"
+            android:layout_height="20dp" />
+        <TextView
+            android:layout_width="20dp"
+            android:padding="10dp"
+
+            android:background="@drawable/icon_seller"
+            android:backgroundTint="@color/greenType"
+            android:layout_gravity="center"
+            android:id="@+id/db_state"
+            android:layout_height="20dp" />
+    </FrameLayout>
+
+
+
+</LinearLayout>

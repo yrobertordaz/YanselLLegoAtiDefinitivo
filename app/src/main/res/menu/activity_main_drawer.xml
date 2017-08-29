@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_my_account"
+            android:icon="@drawable/ic_person"
+            android:title="@string/drawer_item_my_account" />
+        <item
+            android:id="@+id/nav_contacts"
+            android:icon="@drawable/ic_supervisor_account"
+            android:title="@string/drawer_item_contacts" />
+
+        <item
+            android:id="@+id/nav_sellers"
+            android:icon="@drawable/ic_assignment_ind_black_24dp"
+            android:title="Artesanos" />
+        <item
+            android:id="@+id/nav_mensajes"
+            android:icon="@drawable/ic_message_black_24dp"
+
+            android:title="Mensajes" />
+
+        <item
+            android:id="@+id/nav_change_password"
+            android:icon="@drawable/ic_password"
+            android:title="@string/drawer_item_change_password" />
+        <item
+            android:id="@+id/nav_check_lotery_code"
+            android:icon="@drawable/ic_check_black"
+            android:title="@string/drawer_item_check_lotery_code" />
+        <item
+            android:id="@+id/nav_events"
+            android:icon="@drawable/ic_event"
+            android:title="@string/drawer_item_events" />
+        <item
+            android:id="@+id/nav_information"
+            android:icon="@drawable/ic_help_black"
+            android:title="@string/drawer_item_fq" />
+        <!--<item-->
+        <!--android:id="@+id/nav_edit_account"-->
+        <!--android:icon="@drawable/ic_check_black"-->
+        <!--android:title="@string/drawer_item_edit_account" />-->
+
+        <item
+            android:id="@+id/nav_request_history"
+            android:icon="@drawable/ic_request_history"
+            android:title="@string/drawer_item_request_history" />
+
+        <item
+            android:id="@+id/nav_db_config"
+            android:icon="@drawable/ic_view_day_black_24dp"
+            android:title="Base de datos" />
+        <!--<item-->
+        <!--android:id="@+id/nav_gallery"-->
+        <!--android:icon="@drawable/ic_menu_gallery"-->
+        <!--android:title="Gallery" />-->
+        <!--<item-->
+        <!--android:id="@+id/nav_slideshow"-->
+        <!--android:icon="@drawable/ic_menu_slideshow"-->
+        <!--android:title="Slideshow" />-->
+        <!--<item-->
+        <!--android:id="@+id/nav_manage"-->
+        <!--android:icon="@drawable/ic_menu_manage"-->
+        <!--android:title="Tools" />-->
+    </group>
+
+    <!--<item android:title="Communicate">-->
+    <!--<menu>-->
+    <!--<item-->
+    <!--android:id="@+id/nav_share"-->
+    <!--android:icon="@drawable/ic_menu_share"-->
+    <!--android:title="Share" />-->
+    <!--<item-->
+    <!--android:id="@+id/nav_send"-->
+    <!--android:icon="@drawable/ic_menu_send"-->
+    <!--android:title="Send" />-->
+    <!--</menu>-->
+    <!--</item>-->
+
+</menu>

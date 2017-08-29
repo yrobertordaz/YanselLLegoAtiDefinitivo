@@ -1,0 +1,224 @@
+<resources>
+    <string name="app_name">Llego a ti</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="home_tab">Home</string>
+    <string name="category_tab">Catalog</string>
+    <string name="cart_tab">Shopping cart</string>
+
+    <string name="title_activity_product_list">ProductListActivity</string>
+    <string name="title_activity_product_detail">Información</string>
+    <string name="title_activity_login">Autenticar</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Contraseña (opcional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="no_tienes_cuenta_registrate">¿No tienes cuenta? Registrate</string>
+    <string name="title_activity_pick_features">PickFeatures</string>
+    <string name="delete">
+        Eliminar
+    </string>
+    <string name="Ok">Acept</string>
+    <string name="Cancel">Cancel</string>
+    <string name="pick_dialog_title">Por favor seleccione</string>
+    <string name="edit">Editar</string>
+    <string name="title_activity_register">Registrar cuenta</string>
+    <string name="title_activity_confirm">Confirmar cuenta</string>
+    <string name="title_activity_my_account">Mi cuenta</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="email_exist">Existe una cuenta con este correo.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_activity_checkout_lotery_code">Comprobar código de lotería</string>
+    <string name="drawer_item_request_history">Histórico de pedidos</string>
+    <string name="drawer_item_check_lotery_code">Chequear código de lotería</string>
+    <string name="drawer_item_change_password">Cambiar contraseña</string>
+    <string name="drawer_item_my_account">Mi perfil</string>
+    <string name="drawer_item_edit_account">Modificar mi perfil</string>
+    <string name="title_activity_edit_account">Modificar perfil</string>
+    <string name="title_activity_contacts">Contactos</string>
+    <string name="drawer_item_contacts">Contactos</string>
+    <string name="menu_item_add_contact_address">Crear dirección</string>
+    <string name="menu_item_add_contact_phone_movil">Adicionar teléfono móvil</string>
+    <string name="menu_item_add_contact_phone">Adicionar teléfono fijo</string>
+    <string name="loading_check_lotery_code">Comprobando código de lotería</string>
+    <string name="text_wait_please">Espere por favor...</string>
+    <string name="title_activity_modify_account">Modificar perfil</string>
+    <string name="text_male">Masculino</string>
+    <string name="text_female">Femenino</string>
+    <string name="text_accumulated_points_cuc">Equivalentes a</string>
+    <string name="title_activity_request_history">Histórico de pedidos</string>
+    <string name="action_activate_contact_text">Enable</string>
+    <string name="action_remove_contact_text">Remove</string>
+    <string name="title_activity_request_detail">Detalles del pedido</string>
+    <string-array name="request_status">
+        <item>En proceso</item>
+        <item>Completado</item>
+        <item>Fallido por parte del cliente</item>
+        <item>Fallido por parte del artesano</item>
+    </string-array>
+    <string name="lotery_history">Historial de lotería</string>
+    <string name="comment_dialog_title">Comentar</string>
+    <string name="comment_error_msg">Ocurrió un error al comentar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_hint">Escriba el nombre de un producto.</string>
+    <string name="search_text">Buscar...</string>
+    <string name="filter_text">Filtro</string>
+    <string name="error_requesting_categories">Error obteniendo categorias.</string>
+    <string name="tv_discount_points">Rebaja por puntos</string>
+    <string name="btn_consume">Consumir</string>
+    <string name="btn_undo">Deshacer</string>
+    <string name="tv_discount_lotery">Rebaja por Lotería</string>
+    <string name="et_discount_lotery">Introducir Código</string>
+    <string name="btn_apply">Apply</string>
+    <string name="tv_discount_count">Rebaja al por-mayor</string>
+    <string name="tv_discount_vip">Rebaja por ser usuario vip</string>
+    <string name="tv_discount_partial">Costo parcial</string>
+    <string name="tv_discount_points_">Puntos acumulados</string>
+    <string name="tv_discount_points_date">Consumibles antes de</string>
+    <string name="btn_ok">Aceptar</string>
+    <string name="notification_discount_quantity" formatted="false">Usted tiene agregado al carro de compra %d producto(s) del vendedor %s, si agrega %.0f más de este vendedor recibirá un descuento de %.2f CUC en la compra general.</string>
+    <string name="shopping_cart_empyt">Adicione productos al carrito de compras</string>
+    <string name="tv_gained_points_title1">Usted ganará puntos en esta compra</string>
+    <string name="tv_gained_points_title2">Consumibles en su próxima solicitud</string>
+    <string name="tv_gained_points_title3">Puntos a ganar</string>
+    <string name="title_activity_information">Preguntas frecuentes</string>
+    <string name="lorem_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="drawer_item_fq">Preguntas frecuentes</string>
+    <string name="tv_information_title">Información</string>
+    <string name="checkout_contact_dialog_title">Dirección de envío</string>
+    <string name="address">Address</string>
+    <string name="contact_phone">Teléfono</string>
+    <string name="index_dialog_title">Index</string>
+    <string name="drawer_item_events">Events</string>
+    <string name="et_discount_lotery_empty">Debe introducir un código válido.</string>
+    <string name="success_text">La orden se envió con exito.</string>
+    <string name="contact_name">Nombre</string>
+    <string name="tv_province">Province</string>
+    <string name="tv_artisan">Artisan</string>
+    <string name="filter_dialog_title">Filter</string>
+    <string name="item_not_available">You must be authenticated and online.</string>
+    <string name="action_register">Log in</string>
+    <string name="search_result_title">Results for %s</string>
+    <string name="llegoati_con_artesano">Llego a ti con Artesano</string>
+    <string name="tv_without_messenger">Without messenger</string>
+    <string name="tv_active_filter_messenger">Messenger</string>
+    <string name="tv_with_messenger">With messenger</string>
+    <string name="sms_error">Error enviando mensaje</string>
+    <string name="sms_exito">Mensaje enviado</string>
+    <string name="si">SÍ</string>
+    <string name="no">NO</string>
+    <string name="contactar_vendedor">Contactar artesano</string>
+
+    <string name="nuevo_comentario">Nuevo comentario</string>
+    <string name="title_activity_seller_list">SellerListActivity</string>
+    <string name="vendedores">Vendedores</string>
+    <string name="men">Menú</string>
+    <string name="usuario">Usuario</string>
+    <string name="perfil">Perfil</string>
+    <string name="title_activity_seller_profile">SellerProfileActivity</string>
+
+    <string name="sms_message">Este mensaje se enviará vía SMS, esto supondrá un gasto a su cuenta de 0,9 centavos</string>
+
+
+    <string name="error_data">Error data</string>
+    <string name="error_network">Error network</string>
+    <string name="asunto">Asunto:</string>
+    <string name="responder">Nuevo Mensaje</string>
+    <string name="title_alert">Llego a tí</string>
+    <string name="body_alert">Hay un mensaje nuevo para tí</string>
+    <string name="err">Error insertando</string>
+    <string name="sms_1">(el envío de SMS tiene un costo de</string>
+    <string name="elminar_mensaje">Está a punto de eliminar este mensaje definitivamente</string>
+    <string name="eliminar_sms">Está a punto de eliminar este mensaje</string>
+    <string name="db_config">Configuración base de datos.</string>
+    <string name="sms_sending">Está a punto de eliminar este mensaje</string>
+    <string name="sms_delete">Está a punto de eliminar este mensaje definitivamente</string>
+
+
+</resources>

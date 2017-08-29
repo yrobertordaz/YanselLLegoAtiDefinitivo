@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#5091da</color>
+    <color name="colorPrimaryDark">#4881c2</color>
+    <color name="colorAccent">#29abe2</color>
+
+    <!--<color name="colorPrimary">#175294</color>-->
+    <!--<color name="colorPrimaryDark">#303F9F</color>-->
+    <!--<color name="colorAccent">#29abe2</color>-->
+    <color name="starActived">#FFAE49</color>
+    <color name="newProduct">#F15A24</color>
+    <color name="inOffertProduct">#ED1C24</color>
+    <color name="withPromotionProduct">#03aa53</color>
+
+    <!-- A light Holo shade of green -->
+    <color name="holo_green_light">#ff99cc00</color>
+    <!-- A Holo shade of purple -->
+    <color name="holo_purple">#ffaa66cc</color>
+    <!-- A dark Holo shade of orange -->
+    <color name="holo_orange_dark">#ffff8800</color>
+    <!-- A dark Holo shade of red -->
+    <color name="holo_red_dark">#ffcc0000</color>
+    <color name="white">#ffffffff</color>
+    <!--<color name="black">#000000</color>-->
+    <!--<color name="gray_light">#333333</color>-->
+    <color name="success">#008000</color>
+    <color name="danger">#ED1C24</color>
+    <color name="et_control_fill">#E6E6E6</color>
+    <color name="et_control_border">#CCCCCC</color>
+
+    <color name="black">#000000</color>
+    <color name="black_transparent">#99000000</color>
+    <color name="black_dark_transparent">#cc000000</color>
+
+    <color name="white_transparent">#22ffffff</color>
+    <color name="white_dark_transparent">#77ffffff</color>
+
+    <color name="red">#f44336</color>
+    <color name="red_light">#ffcdd2</color>
+    <color name="red_accent">#ff5252</color>
+    <color name="red_text_overlay">#ffffff</color>
+
+    <color name="pink">#e91e63</color>
+    <color name="pink_dark">#c2185b</color>
+    <color name="pink_light">#f8bbd0</color>
+    <color name="pink_accent">#ff4081</color>
+    <color name="pink_text_overlay">#ffffff</color>
+
+    <color name="purple">#9c27b0</color>
+    <color name="purple_dark">#7b1fa2</color>
+    <color name="purple_light">#e1bee7</color>
+    <color name="purple_accent">#e040fb</color>
+    <color name="purple_text_overlay">#ffffff</color>
+
+    <color name="deep_purple">#673ab7</color>
+    <color name="deep_purple_dark">#512da8</color>
+    <color name="deep_purple_light">#d1c4e9</color>
+    <color name="deep_purple_accent">#7c4dff</color>
+    <color name="deep_purple_text_overlay">#ffffff</color>
+
+    <color name="indigo">#3f51b5</color>
+    <color name="indigo_dark">#303f9f</color>
+    <color name="indigo_light">#c5cae9</color>
+    <color name="indigo_accent">#536dfe</color>
+    <color name="indigo_text_overlay">#ffffff</color>
+
+    <color name="blue_facebook">#3b5998</color>
+    <color name="blue_facebook_transparent">#AA3b5998</color>
+    <color name="blue">#2196f3</color>
+    <color name="blue1">#2daae1</color>
+    <color name="blue_dark">#1976d2</color>
+    <color name="blue_light">#bbdefb</color>
+    <color name="blue_accent">#448aff</color>
+    <color name="blue_text_overlay">#ffffff</color>
+
+    <color name="light_blue">#03a9f4</color>
+    <color name="light_blue_dark">#0288d1</color>
+    <color name="light_blue_light">#b3e5fc</color>
+    <color name="light_blue_accent">#03a9f4</color>
+    <color name="light_blue_text_overlay">#ffffff</color>
+
+    <color name="cyan">#00bcd4</color>
+    <color name="cyan_dark">#0097a7</color>
+    <color name="cyan_light">#b2ebf2</color>
+    <color name="cyan_accent">#00bcd4</color>
+    <color name="cyan_text_overlay">#ffffff</color>
+
+    <color name="teal">#009688</color>
+    <color name="teal_dark">#00796b</color>
+    <color name="teal_light">#e9faf7</color>
+    <color name="teal_accent">#009688</color>
+    <color name="teal_text_overlay">#ffffff</color>
+
+    <color name="green">#4caf50</color>
+    <color name="green_dark">#388e3c</color>
+    <color name="green_light">#c8e6c9</color>
+    <color name="green_accent">#4caf50</color>
+    <color name="green_text_overlay">#ffffff</color>
+
+    <color name="light_green">#8bc34a</color>
+    <color name="light_green_dark">#689f38</color>
+    <color name="light_green_light">#dcedc8</color>
+    <color name="light_green_accent">#8bc34a</color>
+    <color name="light_green_text_overlay">#212121</color>
+
+    <color name="lime">#cddc39</color>
+    <color name="lime_dark">#afb42b</color>
+    <color name="lime_light">#f0f4c3</color>
+    <color name="lime_accent">#cddc39</color>
+    <color name="lime_text_overlay">#212121</color>
+
+    <color name="yellow">#ffeb3b</color>
+    <color name="yellow_dark">#fbc02d</color>
+    <color name="yellow_light">#fff9c4</color>
+    <color name="yellow_accent">#ffeb3b</color>
+    <color name="yellow_text_overlay">#212121</color>
+
+    <color name="amber">#ffc107</color>
+    <color name="amber_dark">#ffa000</color>
+    <color name="amber_light">#ffecb3</color>
+    <color name="amber_accent">#ffc107</color>
+    <color name="amber_text_overlay">#212121</color>
+
+    <color name="orange">#ff9800</color>
+    <color name="orange_dark">#f57c00</color>
+    <color name="orange_light">#ffe0b2</color>
+    <color name="orange_accent">#ff9800</color>
+    <color name="orange_text_overlay">#212121</color>
+
+    <color name="deep_orange">#ff5722</color>
+    <color name="deep_orange_dark">#e64a19</color>
+    <color name="deep_orange_light">#ffccbc</color>
+    <color name="deep_orange_accent">#ff5722</color>
+    <color name="deep_orange_text_overlay">#ffffff</color>
+
+    <color name="brown">#795548</color>
+    <color name="brown_dark">#5d4037</color>
+    <color name="brown_light">#d7ccc8</color>
+    <color name="brown_accent">#795548</color>
+    <color name="brown_text_overlay">#ffffff</color>
+
+    <color name="gray">#9e9e9e</color>
+    <color name="gray_transparent">#229e9e9e</color>
+    <color name="gray_dark">#616161</color>
+    <color name="gray_light">#f5f5f5</color>
+    <color name="gray_accent">#9e9e9e</color>
+
+    <color name="blue_gray">#607d8b</color>
+    <color name="blue_gray_dark">#455a64</color>
+    <color name="blue_gray_light">#cfd8dc</color>
+    <color name="blue_gray_accent">#607d8b</color>
+    <color name="blue_gray_text_overlay">#ffffff</color>
+
+    <!--<color name="primary_text">#212121</color>-->
+    <color name="primary_text">@color/white</color>
+    <!--<color name="primary_text">@color/text</color>-->
+    <color name="primary_text_black">@color/black</color>
+    <color name="secondary_text">#727272</color>
+    <color name="divider">#b6b6b6</color>
+
+    <color name="blueType">#6487eb</color>
+    <color name="redType">#e62b30</color>
+    <color name="greenType">#3bcb4e</color>
+    <color name="whiteType">#f3f3f3</color>
+    <color name="pinkType">#e62ba6</color>
+    <color name="yellowType">#f6ff60</color>
+    <color name="background">#ddd</color>
+</resources>
