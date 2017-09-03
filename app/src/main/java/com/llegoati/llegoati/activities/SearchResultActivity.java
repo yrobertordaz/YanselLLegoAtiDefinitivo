@@ -91,8 +91,7 @@ public class SearchResultActivity extends BaseActivity implements SwipeRefreshLa
     private void handleIntent(Intent intent) {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             query = intent.getStringExtra(SearchManager.QUERY);
-//            this.setTitle(getResources().getString(R.string.search_result_title, query));
-
+            //this.setTitle(getResources().getString(R.string.search_result_title, query));
             searchAsyncTask = new SearchAsyncTask();
             searchAsyncTask.execute(
                     query,

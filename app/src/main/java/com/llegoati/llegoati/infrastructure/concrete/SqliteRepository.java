@@ -765,37 +765,44 @@ public class SqliteRepository implements IRepository {
 
     @Override
     public void updateContactUser(String id, Contact[] contacts) throws IOException {
-        throw new IOException("Esta funcion no trabaja offline");
+        //throw new IOException("Esta funcion no trabaja offline");
+
     }
 
     @Override
     public List<com.llegoati.llegoati.models.Request> requestHistory(String clientId, boolean includeProducts) throws IOException {
-        throw new IOException("Esta funcion no trabaja offline");
+        //throw new IOException("Esta funcion no trabaja offline");
+        return new ArrayList<>();
     }
 
     @Override
     public List<Cupon> loteryCodeHistory(String userId) throws IOException {
-        throw new IOException("Esta funcion no trabaja offline");
+        //throw new IOException("Esta funcion no trabaja offline");
+
+        return new ArrayList<>();
+
     }
 
     @Override
     public com.llegoati.llegoati.models.Request request(String requestId) throws IOException {
-        throw new IOException("Esta funcion no trabaja offline");
+        //throw new IOException("Esta funcion no trabaja offline");
+        return null;
     }
 
     @Override
     public void commentProduct(String comment, String userId, String requestId, String productId) throws IOException {
-        throw new IOException("Esta funcion no trabaja offline");
+        //throw new IOException("Esta funcion no trabaja offline");
+
     }
 
     @Override
     public void rateProduct(String productId, String userId, String requestId, Integer ratingProduct) throws IOException {
-        throw new IOException("Esta funcion no trabaja offline");
+       // throw new IOException("Esta funcion no trabaja offline");
     }
 
     @Override
     public void rateMessenger(String productId, String userId, Integer ratingMessenger, String requestId) throws IOException {
-        throw new IOException("Esta funcion no trabaja offline");
+       // throw new IOException("Esta funcion no trabaja offline");
     }
 
     @Override
@@ -1084,7 +1091,10 @@ public class SqliteRepository implements IRepository {
     @Override
     public List<ProductItem> search(String query, int pageIndex, int pageSize, String artisanId, String provinceId, Boolean withMessenger) throws IOException {
 
-        return new ArrayList<>();
+        //List<ProductItem> mList = new ArrayList<>();
+        Cursor mItems = mDbconection.search(query,pageIndex,pageSize,artisanId,provinceId,withMessenger);
+
+        return getListByCursor(mItems);
     }
 
     @Override

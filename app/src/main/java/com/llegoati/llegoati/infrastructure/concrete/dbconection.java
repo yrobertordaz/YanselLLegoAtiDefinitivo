@@ -447,6 +447,82 @@ public class dbconection extends SQLiteOpenHelper {
         return mC;
     }
 
+
+
+    public Cursor search(String searchQuery, int pageIndex, int pageSize, String filterArtisan, String filterProvince,Boolean filterWithoutMessenger) {
+
+        if (pageIndex == 0)
+            Constants.START_LIMIT = 0;
+
+        Constants.PAGE_INDEX = pageIndex;
+        String filtArtesano = "";
+
+        if (filterArtisan!=null) filtArtesano = " AND "+COLUMNS_PRODUCTO.VendedorId +"=\""+ filtArtesano +"\" ";
+
+        String filtSearch = "";//searchQuery!=null ? COLUMNS_PRODUCTO.SubCategoriaId+ "=\""+searchQuery + "\" ":"";
+
+        Cursor mSubcate = getSubcategoryByName(searchQuery);
+        filtSearch +=   " " + COLUMNS_PRODUCTO.Descripcion +" LIKE \"%"+searchQuery+"%\" OR " +
+                        COLUMNS_PRODUCTO.Material +" LIKE \"%"+searchQuery+"%\" OR " +
+                        COLUMNS_PRODUCTO.Modelo +" LIKE \"%"+searchQuery+"%\" " ;
+
+        if (mSubcate.moveToFirst()){
+            final String idSubcategorie = mSubcate.getString(mSubcate.getColumnIndex(COLUMNS_SUB_CATEGORIAS.ID));
+            filtSearch += " OR "+COLUMNS_PRODUCTO.SubCategoriaId+ "=\""+idSubcategorie + "\" ";
+        }
+
+        String filtMensageria = filterWithoutMessenger!=null ? (filterWithoutMessenger ? "1":"0"):"0";
+        String mensajeriTxt1 = filterWithoutMessenger!=null ? "AND PROD." + COLUMNS_PRODUCTO.Mensajeria+"="+filtMensageria : "";
+        String mensajeriTxt2 = filterWithoutMessenger!=null? "AND "+COLUMNS_PRODUCTO.Mensajeria+"="+filtMensageria:"";
+
+        String query = "";//"SELECT * from PRODUCTO AS PROD JOIN PROVINCIA_PRODUCTO AS MP ON MP.IdProducto = PROD.Id JOIN PROVINCIA AS PROV ON (PROV.Id = MP.IdProvincia " + mensajeriTxt1 + filtSearch + ")";;
+
+        Cursor mC = null;
+        if (filterProvince!=null){
+            Cursor prov = getProvincia(filterProvince);
+            if (prov.moveToFirst()) {
+                int code = prov.getInt(prov.getColumnIndex(COLUMNS_PROVINCIA.Codigo));
+                query = "SELECT * from PRODUCTO AS PROD JOIN PROVINCIA_PRODUCTO AS MP ON MP.IdProducto = PROD.Id JOIN PROVINCIA AS PROV ON (PROV.Id = MP.IdProvincia AND PROV.Codigo = " + code + " " + mensajeriTxt1 + " "+ filtArtesano +" OR "+filtSearch+")";
+            }
+            mC = this.myDataBase.rawQuery(query,null);
+        }else {
+            query = filtSearch + filtArtesano +
+                    mensajeriTxt2 +
+                    " LIMIT " +
+                    String.valueOf(Constants.START_LIMIT) + "," +
+                    String.valueOf(Constants.START_LIMIT + pageSize);
+
+            mC = this.myDataBase.query(
+                    TABLE_PRODUCTO,
+                    null,
+                    query,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+
+            );
+        }
+        Constants.START_LIMIT += pageSize;
+
+        return mC;
+    }
+
+    private Cursor getProvinciaById(String filterProvince) {
+        return this.myDataBase.query(
+                TABLE_PROVINCES,
+                null,
+                COLUMNS_PROVINCIA.ID+" LIKE '%"+filterProvince+"%'",
+                null,
+                null,
+                null,
+                null,
+                null
+
+        );
+    }
+
     private Cursor getSellerByName(String filterArtisan) {
         return this.myDataBase.query(
                 TABLE_OPERARIO,
