@@ -21,6 +21,7 @@
 
     <!--<string name="llegoati_url" translatable="false">http://192.168.43.153:83/</string>-->
     <!--<string name="llegoati_service" translatable="false">http://192.168.43.153:83/nonrest/</string>-->
+
     <string name="llegoati_url" translatable="false">http://10.0.0.5/</string>
     <string name="llegoati_service" translatable="false">http://10.0.0.5/nonrest/</string>
 </resources>

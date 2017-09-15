@@ -46,6 +46,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
                 .placeholder(R.drawable.ic_subcategory_empty)
                 .error(R.drawable.ic_subcategory_empty)
                 .into(holder.ivLogo);
+        holder.setItem(item);
     }
 
     @Override
