@@ -2,10 +2,8 @@ package com.llegoati.llegoati.infrastructure.concrete;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 
-import com.android.volley.Request;
 import com.llegoati.llegoati.exceptions.CuponDontExistException;
 import com.llegoati.llegoati.exceptions.IncorrectConfirmException;
 import com.llegoati.llegoati.exceptions.IncorrectPasswordException;
@@ -49,14 +47,9 @@ import com.llegoati.llegoati.models.UserModify;
 import com.llegoati.llegoati.smsmodulo.SendMessage;
 import com.llegoati.llegoati.smsmodulo.Utils.Constants;
 
-import org.eclipse.jdt.core.IField;
-import org.eclipse.jdt.internal.core.CompilationUnitStructureRequestor;
-import org.eclipse.jdt.internal.core.INameEnvironmentWithProgress;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -218,7 +211,7 @@ public class SqliteRepository implements IRepository {
                         getMySeller(mProducts.getString(mPosSellerId)),
                         getMyCalifier(mProducts.getString(mPosCalifier)),
                         getSubcategory(mProducts.getString(mPosSubcategoria)).getNameSubcategory(),
-                        mProducts.getString(mPosModifyDate)
+                        null, mProducts.getString(mPosModifyDate) // TODO: 9/6/2017 Adicionar el campo Messenger que es el que dice si el producto tiene mensajeria o no.
                 ));
 
             } while (mProducts.moveToNext());
@@ -568,7 +561,7 @@ public class SqliteRepository implements IRepository {
                         getMySeller(mProducts.getString(mPosSellerId)),
                         getMyCalifier(mProducts.getString(mPosCalifier)),
                         getSubcategory(mProducts.getString(mPosSubcategorieId)).getNameSubcategory(),
-                        mProducts.getString(mPosModifyDate)
+                        null, mProducts.getString(mPosModifyDate) // TODO: 9/6/2017 Adicionar el campo Messenger que es el que dice si el producto tiene mensajeria o no.
                 ));
 
             } while (mProducts.moveToNext());

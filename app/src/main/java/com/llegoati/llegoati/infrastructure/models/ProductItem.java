@@ -16,33 +16,37 @@ public class ProductItem {
     private String Sku;
     private Double ProductPrice;
     private Subcategory Subcategory;
+    private Boolean Messenger;
     private String modifyDate;
 
-    public ProductItem() {
+    public ProductItem(Boolean messenger) {
 //        Id = RemoteRepository.PRODUCT_COUNT++;
+        Messenger = messenger;
     }
 
-    public ProductItem(float price, String photo, String productId, Seller seller, Califier califier, String nameSubcategory) {
+    public ProductItem(float price, String photo, String productId, Seller seller, Califier califier, String nameSubcategory, Boolean messenger) {
         Price = price;
         Photo = photo;
         this.ProductId = productId;
         this.Seller = seller;
         this.Califier = califier;
         NameSubcategory = nameSubcategory;
+        Messenger = messenger;
     }
 
-    public ProductItem(float price, String photo, String productId, Seller seller, Califier califier, String nameSubcategory,String modifyDate) {
+    public ProductItem(float price, String photo, String productId, Seller seller, Califier califier, String nameSubcategory, Boolean messenger, String modifyDate) {
         Price = price;
         Photo = photo;
         this.ProductId = productId;
         this.Seller = seller;
         this.Califier = califier;
         NameSubcategory = nameSubcategory;
+        Messenger = messenger;
         // TODO: 8/4/2017 este parse no lo hace
         this.modifyDate = modifyDate;
     }
 
-    public ProductItem(float price, String photo, String productId, String photoUrl, Seller seller, Califier califier, String nameSubcategory, String sku, Double productPrice, Subcategory subcategory) {
+    public ProductItem(float price, String photo, String productId, String photoUrl, Seller seller, Califier califier, String nameSubcategory, String sku, Double productPrice, Subcategory subcategory, Boolean messenger) {
         Price = price;
         Photo = photo;
         this.ProductId = productId;
@@ -53,6 +57,15 @@ public class ProductItem {
         this.Sku = sku;
         ProductPrice = productPrice;
         this.Subcategory = subcategory;
+        Messenger = messenger;
+    }
+
+    public Boolean getMessenger() {
+        return Messenger;
+    }
+
+    public void setMessenger(Boolean messenger) {
+        Messenger = messenger;
     }
 
     public Double getProductPrice() {

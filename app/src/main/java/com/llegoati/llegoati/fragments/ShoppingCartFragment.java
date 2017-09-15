@@ -140,7 +140,7 @@ public class ShoppingCartFragment extends Fragment implements AdapterView.OnItem
                 CheckoutShoppingCartAsync checkoutShoppingCartAsync = new CheckoutShoppingCartAsync(shoppingCartOrder);
                 checkoutShoppingCartAsync.execute();
             }
-        } else {
+        } else /*if(!userManager.isUserPermanentAuthenticated() && repository.)*/ {
 
             CheckoutContactDialog checkoutContactDialog = new CheckoutContactDialog();
             checkoutContactDialog.setShoppingItemAdapter(shoppingItemAdapter);
@@ -502,6 +502,7 @@ public class ShoppingCartFragment extends Fragment implements AdapterView.OnItem
                 tvDiscountLoteryValue.setText(String.format(Locale.US, "%.2f cuc", checkoutLoteryCode.getRebaja()));
             updatePartialCost();
             updateValues();
+
             // TODO: 7/29/2017 Duda con respecto a que si el loteryId es el Id del cupon asociado a la rebaja
             loteryId = checkoutLoteryCode.getCupon().getIdCoupon();
             super.onPostExecute(aVoid);

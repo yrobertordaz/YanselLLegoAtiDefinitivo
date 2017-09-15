@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -47,7 +46,6 @@ public class ProductListActivity extends BaseActivity implements FilterDialog.IO
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
 
-    private boolean mTwoPane;
     private GridLayoutManager gridLayoutManager;
     View recyclerView;
     private EndlessRecyclerViewScrollListener scrollListener;
@@ -98,13 +96,20 @@ public class ProductListActivity extends BaseActivity implements FilterDialog.IO
             @Override
             public void onRefresh() {
                 FillProductAsyncTask fillProductAsyncTask = new FillProductAsyncTask();
-                fillProductAsyncTask.execute(subcategory, String.valueOf(0), PAGE_SIZE.toString(), String.valueOf(true));
+                fillProductAsyncTask.execute(
+                        subcategoryId,
+                        String.valueOf(0),
+                        PAGE_SIZE.toString(),
+                        String.valueOf(true),
+                        null,
+                        null,
+                        null);
             }
         });
 
         fillProductAsyncTask = new FillProductAsyncTask();
         fillProductAsyncTask.execute(
-                subcategory,
+                subcategoryId,
                 String.valueOf(0),
                 PAGE_SIZE.toString(),
                 String.valueOf(true),
@@ -156,13 +161,11 @@ public class ProductListActivity extends BaseActivity implements FilterDialog.IO
         recyclerView.setLayoutManager(gridLayoutManager);
 
         scrollListener = new EndlessRecyclerViewScrollListener(gridLayoutManager) {
-
-
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                 fillProductAsyncTask = new FillProductAsyncTask();
                 fillProductAsyncTask.execute(
-                        subcategory,
+                        subcategoryId,
                         String.valueOf(page),
                         PAGE_SIZE.toString(),
                         String.valueOf(false).toString(),
@@ -172,6 +175,7 @@ public class ProductListActivity extends BaseActivity implements FilterDialog.IO
                 );
             }
         };
+        recyclerView.addOnScrollListener(scrollListener);
 
     }
 
@@ -216,7 +220,7 @@ public class ProductListActivity extends BaseActivity implements FilterDialog.IO
 
         fillProductAsyncTask = new FillProductAsyncTask();
         fillProductAsyncTask.execute(
-                subcategory,
+                subcategoryId,
                 String.valueOf(0),
                 PAGE_SIZE.toString(),
                 String.valueOf(true),
@@ -233,7 +237,6 @@ public class ProductListActivity extends BaseActivity implements FilterDialog.IO
         @Override
         protected void onPreExecute() {
             swpProducts.setRefreshing(true);
-            MainActivity.productAdapter.clear();
             super.onPreExecute();
         }
 
@@ -243,6 +246,7 @@ public class ProductListActivity extends BaseActivity implements FilterDialog.IO
                 MainActivity.productAdapter.clear();
                 refreshing = false;
             }
+
             MainActivity.productAdapter.notifyDataSetChanged();
             if (productItemIterator != null)
                 while (productItemIterator.hasNext()) {
@@ -267,7 +271,8 @@ public class ProductListActivity extends BaseActivity implements FilterDialog.IO
                         Integer.parseInt(strings[2]),
                         strings[4],
                         strings[5],
-                        strings[6] != null ? Boolean.parseBoolean(strings[6]) : null).iterator();
+                        strings[6] != null ? Boolean.parseBoolean(strings[6]) : null)
+                        .iterator();
 
             } catch (IOException e) {
                 e.printStackTrace();

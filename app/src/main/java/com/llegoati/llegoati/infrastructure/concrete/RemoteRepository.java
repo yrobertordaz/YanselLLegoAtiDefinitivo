@@ -228,7 +228,7 @@ public class RemoteRepository implements IRepository {
 
 
         okhttp3.Request request = new okhttp3.Request.Builder()
-                .url(String.format("%s%s?subCategory=%s&pageIndex=%d&pageLoad=%d&vendor=%s&province=%s&distribution=%s",
+                .url(String.format("%s%s?subcategory=%s&pageIndex=%d&pageLoad=%d&vendor=%s&province=%s&distribution=%s",
                         context.getString(R.string.llegoati_service),
                         "Product/FilterProduct",
                         subcategory,

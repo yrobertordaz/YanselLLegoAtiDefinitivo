@@ -3,7 +3,6 @@ package com.llegoati.llegoati.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,21 +44,23 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
 
     @Override
     public void onBindViewHolder(ProductListViewHolder holder, final int position) {
+        final ProductItem item = productItemList.get(position);
         holder.mView.setOnClickListener(null);
         Glide.with(holder.imageView.getContext())
-                .load((productItemList.get(position).getPhoto() != null) ? Base64.decode(productItemList.get(position).getPhoto(), Base64.DEFAULT) : null)
+                .load((item.getPhotoUrl() != null) ? (item.getPhotoUrl()) : null)
                 .asBitmap().animate(android.R.anim.slide_in_left)
                 .placeholder(R.drawable.ic_subcategory_empty)
                 .error(R.drawable.ic_subcategory_empty)
                 .into(holder.imageView);
 
-        if (productItemList.get(position).getCalifier() != null) {
+        if (item.getCalifier() != null) {
             holder.califierImageView.setVisibility(View.VISIBLE);
-            holder.califierImageView.setImageBitmap(RemoteRepository.getBitmap(productItemList.get(position).getCalifier().getCalifierImage()));
+            holder.califierImageView.setImageBitmap(RemoteRepository.getBitmap(item.getCalifier().getCalifierImage()));
         } else {
             holder.califierImageView.setVisibility(View.GONE);
         }
-        holder.priceTextView.setText(String.format("%.2fcuc + Envío", productItemList.get(position).getPrice()));
+
+        holder.priceTextView.setText(String.format((item.getMessenger()) ? "%.2fcuc + Envío" : "%.2fcuc", item.getPrice()));
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,13 +68,13 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
                 Context context = v.getContext();
 
                 Intent productDetailIntent = new Intent(context, ProductDetailActivity.class);
-                productDetailIntent.putExtra(ARG_PRODUCT_ID, productItemList.get(position).getProductId());
+                productDetailIntent.putExtra(ARG_PRODUCT_ID, item.getProductId());
                 productDetailIntent.putExtra(ProductListActivityFragment.ARG_SUBCATEGORY_NAME, subcategory);
                 context.startActivity(productDetailIntent);
             }
         });
         // TODO: 15/11/2016  Arreglar para la que la subcategoria pueda tenerla aqui
-        holder.nameTextView.setText(String.format("%s de %s", subcategory, productItemList.get(position).getSeller().getName()));
+        holder.nameTextView.setText(String.format("%s de %s", item.getSubcategory().getNameSubcategory(), item.getSeller().getName()));
     }
 
 

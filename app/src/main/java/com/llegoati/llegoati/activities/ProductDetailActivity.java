@@ -6,12 +6,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatRatingBar;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -133,10 +133,10 @@ public class ProductDetailActivity extends BaseActivity implements PickDialog.IO
 
         App.getInstance().getAppComponent().inject(this);
         ButterKnife.bind(this);
-        initializeComponent();
 
         FillImageAsyncTask fillImageAsyncTask = new FillImageAsyncTask();
         fillImageAsyncTask.execute(idProduct);
+        initializeComponent();
     }
 
     private void initializeComponent() {
@@ -147,7 +147,7 @@ public class ProductDetailActivity extends BaseActivity implements PickDialog.IO
                 fillImageAsyncTask.execute(idProduct);
             }
         });
-        subCategoryTextView.setText(nameSubcategory);
+
         addToCart.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -176,6 +176,8 @@ public class ProductDetailActivity extends BaseActivity implements PickDialog.IO
     }
 
     private class FillImageAsyncTask extends AsyncTask<String, Void, Void> {
+
+        private final String TAG = FillImageAsyncTask.class.getSimpleName();
 
         @Override
         protected Void doInBackground(String... strings) {
@@ -223,6 +225,7 @@ public class ProductDetailActivity extends BaseActivity implements PickDialog.IO
                     }
                 });
             }
+            subCategoryTextView.setText(productDetail.getSubCategory().getNameSubcategory());
             featureItems = new ArrayList<>();
             skuTextView.setText(productDetail.getSku());
             ratingAppCompatRatingBar.setRating(productDetail.getValueRanking());
@@ -238,11 +241,14 @@ public class ProductDetailActivity extends BaseActivity implements PickDialog.IO
                 }
             }
             for (String key : dicAttr.keySet()) {
-                featuresTextView.setText(Html.fromHtml(featuresTextView.getText() + String.format("<br /><strong>%s:</strong> %s", key, dicAttr.get(key))));
-                featureItems.add(new FeatureItem(key, dicAttr.get(key).split(","), dicAttr.get(key).split(",")[0]));
+                if (dicAttr.get(key) != null) {
+                    featuresTextView.setText(Html.fromHtml(featuresTextView.getText() + String.format("<br /><strong>%s:</strong> %s", key, dicAttr.get(key))));
+                    featureItems.add(new FeatureItem(key, dicAttr.get(key).split(","), dicAttr.get(key).split(",")[0]));
+                } else
+                    Log.d(TAG, String.format("key %s not contain values.", key));
             }
 
-            if (productDetail.getComments()!=null && productDetail.getComments().length > 0) {
+            if (productDetail.getComments() != null && productDetail.getComments().length > 0) {
                 lineComments.setVisibility(View.VISIBLE);
 
                 LayoutInflater layoutInflater = getLayoutInflater();
@@ -272,7 +278,10 @@ public class ProductDetailActivity extends BaseActivity implements PickDialog.IO
                 discountTextView.setVisibility(View.GONE);
             }
 
-            priceTextView.setText(Html.fromHtml(String.format(Locale.US, "<strong>%.2f cuc</strong> + Costo de mensajería según el lugar.", productDetail.getUnitPrice())));
+            if (productDetail.getMessenger())
+                priceTextView.setText(Html.fromHtml(String.format(Locale.US, "<strong>%.2f cuc</strong> + Costo de mensajería según el lugar.", productDetail.getUnitPrice())));
+            else
+                priceTextView.setText(Html.fromHtml(String.format(Locale.US, "<strong>%.2f cuc</strong>.", productDetail.getUnitPrice())));
         }
 
         private void fillImages() {
