@@ -265,8 +265,8 @@ public class ProductListActivity extends BaseActivity implements FilterDialog.IO
                         strings[0],
                         Integer.parseInt(strings[1]),
                         Integer.parseInt(strings[2]),
-                        strings[4],
-                        strings[5],
+                        (strings[4] != null) ? strings[4] : null, // ArtisanId
+                        (strings[5] != null) ? strings[5] : null, // ProvinceId
                         strings[6] != null ? Boolean.parseBoolean(strings[6]) : null).iterator();
 
             } catch (IOException e) {

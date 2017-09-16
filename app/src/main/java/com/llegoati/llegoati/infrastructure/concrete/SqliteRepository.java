@@ -20,6 +20,7 @@ import com.llegoati.llegoati.infrastructure.models.Category;
 import com.llegoati.llegoati.infrastructure.models.CheckoutLoteryCode;
 import com.llegoati.llegoati.infrastructure.models.Contact;
 import com.llegoati.llegoati.infrastructure.models.Cupon;
+import com.llegoati.llegoati.infrastructure.models.DestineInformation;
 import com.llegoati.llegoati.infrastructure.models.MessengerPrice;
 import com.llegoati.llegoati.infrastructure.models.ProductDetail;
 import com.llegoati.llegoati.infrastructure.models.ProductItem;
@@ -809,23 +810,43 @@ public class SqliteRepository implements IRepository {
     public List<MessengerPrice> messengerPrices() throws IOException {
 
         Cursor mPrices = mDbconection.getMessengerPrices();
-        List<MessengerPrice> messengerPrices = new ArrayList<>();
+        List<MessengerPrice> mResult = new ArrayList<>();
 
         if (mPrices.moveToFirst()){
 
             int posId = mPrices.getColumnIndex(dbconection.COLUMNS_MUNICIPIO_PRODUCTO.ID);
             int posDestId = mPrices.getColumnIndex(dbconection.COLUMNS_MUNICIPIO_PRODUCTO.DestinoId);
-            int posProducId = mPrices.getColumnIndex(dbconection.COLUMNS_MUNICIPIO_PRODUCTO.ProductoId);
             int posPrecio = mPrices.getColumnIndex(dbconection.COLUMNS_MUNICIPIO_PRODUCTO.PrecioMensajeria);
-
-
             do {
-
+                mResult.add(new MessengerPrice(
+                        mPrices.getString(posId),
+                        mPrices.getDouble(posPrecio),
+                        getDestineInformation(mPrices.getString(posDestId))
+                ));
             }while (mPrices.moveToNext());
         }
 
+        return mResult;
+        //throw new IOException("Esta funcion no trabaja offline");
+    }
 
-        throw new IOException("Esta funcion no trabaja offline");
+    private DestineInformation getDestineInformation(String ID) {
+
+        final Cursor mMunicipio = mDbconection.getMunicipioById(ID);
+
+        if (mMunicipio.moveToFirst()){
+            final String mName = mMunicipio.getString(mMunicipio.getColumnIndex(dbconection.COLUMNS_MUNICIPIO.Nombre));
+            final String mNameProvince = mMunicipio.getString(mMunicipio.getColumnIndex(dbconection.COLUMNS_MUNICIPIO.Provincia));
+
+            //final Cursor province = mDbconection.getProvinciaById(mIdProvince);
+
+            //if (province.moveToFirst()){
+              //  final String mNameProvince = province.getString(province.getColumnIndex(dbconection.COLUMNS_PROVINCIA.Nombre));
+                return new DestineInformation(ID,mName,mNameProvince);
+            //}
+        }
+
+        return null;
     }
 
     @Override

@@ -420,7 +420,7 @@ public class dbconection extends SQLiteOpenHelper {
             Cursor prov = getProvincia(filterProvince);
             if (prov.moveToFirst()) {
                 int code = prov.getInt(prov.getColumnIndex(COLUMNS_PROVINCIA.Codigo));
-                query = "SELECT * from PRODUCTO AS PROD JOIN PROVINCIA_PRODUCTO AS MP ON MP.IdProducto = PROD.Id JOIN PROVINCIA AS PROV ON (PROV.Id = MP.IdProvincia AND PROV.Codigo = " + code + " " + mensajeriTxt1 + " "+ filtArtesano +" AND PROD."+filtSubcategorie+")";
+                query = "SELECT * from PRODUCTO AS PROD JOIN PROVINCIA_PRODUCTO AS MP ON MP.Producto_Id = PROD.Id JOIN PROVINCIA AS PROV ON (PROV.Id = MP.Provincia_Id AND PROV.Codigo = " + code + " " + mensajeriTxt1 + " "+ filtArtesano +" AND PROD."+filtSubcategorie+")";
             }
             mC = this.myDataBase.rawQuery(query,null);
         }else {
@@ -456,15 +456,18 @@ public class dbconection extends SQLiteOpenHelper {
 
         Constants.PAGE_INDEX = pageIndex;
         String filtArtesano = "";
-
-        if (filterArtisan!=null) filtArtesano = " AND "+COLUMNS_PRODUCTO.VendedorId +"=\""+ filtArtesano +"\" ";
+        String AND = ((searchQuery!=null)?" AND ":" ");
+        if (filterArtisan!=null) filtArtesano = AND + COLUMNS_PRODUCTO.VendedorId +"=\""+ filterArtisan +"\" ";
 
         String filtSearch = "";//searchQuery!=null ? COLUMNS_PRODUCTO.SubCategoriaId+ "=\""+searchQuery + "\" ":"";
 
         Cursor mSubcate = getSubcategoryByName(searchQuery);
-        filtSearch +=   " " + COLUMNS_PRODUCTO.Descripcion +" LIKE \"%"+searchQuery+"%\" OR " +
-                        COLUMNS_PRODUCTO.Material +" LIKE \"%"+searchQuery+"%\" OR " +
-                        COLUMNS_PRODUCTO.Modelo +" LIKE \"%"+searchQuery+"%\" " ;
+
+        if (searchQuery!=null) {
+            filtSearch += " " + COLUMNS_PRODUCTO.Descripcion + " LIKE \"%" + searchQuery + "%\" OR " +
+                    COLUMNS_PRODUCTO.Material + " LIKE \"%" + searchQuery + "%\" OR " +
+                    COLUMNS_PRODUCTO.Modelo + " LIKE \"%" + searchQuery + "%\" ";
+        }
 
         if (mSubcate.moveToFirst()){
             final String idSubcategorie = mSubcate.getString(mSubcate.getColumnIndex(COLUMNS_SUB_CATEGORIAS.ID));
@@ -481,8 +484,11 @@ public class dbconection extends SQLiteOpenHelper {
         if (filterProvince!=null){
             Cursor prov = getProvincia(filterProvince);
             if (prov.moveToFirst()) {
+                if (!filtSearch.isEmpty()){
+                    filtSearch = " OR "+filtSearch;
+                }
                 int code = prov.getInt(prov.getColumnIndex(COLUMNS_PROVINCIA.Codigo));
-                query = "SELECT * from PRODUCTO AS PROD JOIN PROVINCIA_PRODUCTO AS MP ON MP.IdProducto = PROD.Id JOIN PROVINCIA AS PROV ON (PROV.Id = MP.IdProvincia AND PROV.Codigo = " + code + " " + mensajeriTxt1 + " "+ filtArtesano +" OR "+filtSearch+")";
+                query = "SELECT * from PRODUCTO AS PROD JOIN PROVINCIA_PRODUCTO AS MP ON MP.Producto_Id = PROD.Id JOIN PROVINCIA AS PROV ON (PROV.Id = MP.Provincia_Id AND PROV.Codigo = " + code + " " + mensajeriTxt1 + " "+ filtArtesano + filtSearch+")";
             }
             mC = this.myDataBase.rawQuery(query,null);
         }else {
@@ -509,7 +515,8 @@ public class dbconection extends SQLiteOpenHelper {
         return mC;
     }
 
-    private Cursor getProvinciaById(String filterProvince) {
+    public
+    Cursor getProvinciaById(String filterProvince) {
         return this.myDataBase.query(
                 TABLE_PROVINCES,
                 null,
@@ -591,6 +598,19 @@ public class dbconection extends SQLiteOpenHelper {
 
     }
 
+    public Cursor getMunicipioById(String string) {
+        return this.myDataBase.query(
+                TABLE_MUNICIPIO,
+                null,
+                String.format("%s  = '%s'",COLUMNS_MUNICIPIO.ID,string),
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+    }
+
 
     public static class COLUMNS_ATRIBUTO_PRODUCTO {
         public static final String ID = "Id";
@@ -612,7 +632,16 @@ public class dbconection extends SQLiteOpenHelper {
         public static final String ID = "Id";
         public static final String ProductoId = "ProductoId";
         public static final String DestinoId = "DestinoId";
-        public static final String PrecioMensajeria = "PrecioMensajeria ";
+        public static final String PrecioMensajeria = "PrecioMensajeria";
+
+
+    }
+
+    public static class COLUMNS_MUNICIPIO {
+        public static final String ID = "MId";
+        public static final String Provincia = "Provincia";
+        public static final String Nombre = "Nombre";
+        public static final String Codigo = "Codigo ";
 
 
     }

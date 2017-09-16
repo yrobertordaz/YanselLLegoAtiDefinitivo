@@ -137,7 +137,7 @@ public class PreferencesFactory {
         Gson mGson = new Gson();
         if (mjSon!=null){
             return mGson.fromJson(mjSon,LLegoDataBaseFactory[].class);
-        }else return null;
+        }else return new LLegoDataBaseFactory[0];
 
 
     }
