@@ -3,6 +3,7 @@ package com.llegoati.llegoati.activities;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -47,6 +48,9 @@ public class SellerProfileActivity extends BaseActivity {
     @Bind(R.id.seller_icon)
     ImageView mIcon;
 
+    @Bind(R.id.seller_products)
+    View mProducts;
+
     @Bind(R.id.seller_name)
     TextView mName;
 
@@ -74,6 +78,12 @@ public class SellerProfileActivity extends BaseActivity {
     @Bind(R.id.letters_count)
     TextView countLetters;
 
+    @OnClick(R.id.seller_products)
+    public void products(){
+        Intent mIntent = new Intent(getContext(),SearchResultActivity.class);
+        mIntent.putExtra(Constants.SELLER_ID,mSeller.getId());
+        startActivity(mIntent);
+    }
 
     @SuppressLint("SetTextI18n")
     @OnTextChanged(R.id.sms_responce)
@@ -180,7 +190,7 @@ public class SellerProfileActivity extends BaseActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         App.getInstance().getAppComponent().inject(this);
-        ButterKnife.bind(this);
+
 
         mId = getIntent().getStringExtra("mId");
 
@@ -292,6 +302,9 @@ public class SellerProfileActivity extends BaseActivity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
+
+            ButterKnife.bind(SellerProfileActivity.this);
+
             setText(mName, mSeller.getName()!=null?mSeller.getName():"Dato no registrado");
             setText(mLastName, mSeller.getLastName()!=null?mSeller.getLastName():"Dato no registrado");
             setText(mEmail, mSeller.getEmail()!=null?mSeller.getEmail():"Dato no registrado");

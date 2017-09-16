@@ -2,6 +2,8 @@ package com.llegoati.llegoati.activities;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -10,11 +12,13 @@ import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatRatingBar;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.text.SpannableStringBuilder;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -26,10 +30,15 @@ import com.llegoati.llegoati.R;
 import com.llegoati.llegoati.adapter.ProductRecyclerViewAdapter;
 import com.llegoati.llegoati.fragments.ProductListActivityFragment;
 import com.llegoati.llegoati.infrastructure.abstracts.IRepository;
+import com.llegoati.llegoati.infrastructure.abstracts.IUserManager;
+import com.llegoati.llegoati.infrastructure.concrete.utils.UtilsFunction;
 import com.llegoati.llegoati.infrastructure.models.AttributesProductInfo;
 import com.llegoati.llegoati.infrastructure.models.Comment;
 import com.llegoati.llegoati.infrastructure.models.FeatureItem;
 import com.llegoati.llegoati.infrastructure.models.ProductDetail;
+import com.llegoati.llegoati.models.PartialSeller;
+import com.llegoati.llegoati.models.UserConfiguration;
+import com.llegoati.llegoati.smsmodulo.Utils.Constants;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,6 +52,7 @@ import javax.inject.Inject;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnTextChanged;
 
 public class ProductDetailActivity extends BaseActivity implements PickDialog.IOnPickListener {
 
@@ -119,6 +129,150 @@ public class ProductDetailActivity extends BaseActivity implements PickDialog.IO
     String idProduct;
     String nameSubcategory;
 
+    @Bind(R.id.btn_send_responce)
+    View btnSendMessage;
+
+    @Bind(R.id.sms_responce)
+    EditText mMessage;
+
+    @Bind(R.id.letters_count)
+    TextView countLetters;
+
+
+    @SuppressLint("SetTextI18n")
+    @OnTextChanged(R.id.sms_responce)
+    public void textChange(SpannableStringBuilder letters){
+        countLetters.setText(String.valueOf(letters.length())+"/150");
+        if (letters.length()>150) {
+            countLetters.setTextColor(getResources().getColor(R.color.redType));
+            final String temp = letters.toString().substring(0,letters.length()-1);
+            mMessage.setText(temp);
+            mMessage.setSelection(temp.length());
+        }
+        else if (letters.length()>100 && letters.length()<150)
+            countLetters.setTextColor(getResources().getColor(R.color.orange));
+        else
+            countLetters.setTextColor(getResources().getColor(R.color.black));
+    }
+
+    private Object context;
+
+
+    @OnClick(R.id.btn_send_responce)
+    public void setBtnSendMessage() {
+        final String message = mMessage.getText().toString();
+        mMessage.setText("");
+        mMessage.setActivated(false);
+        if (!message.isEmpty() && message.split(" ").length > 0) {
+
+            mMessage.setPressed(false);
+            AsyncTask mAsyncTask = new AsyncTask() {
+
+                boolean responce = false;
+                UserConfiguration mConfig;
+                @Override
+                protected void onPostExecute(Object o) {
+
+                    //mMessage.setPressed(true);
+                    mMessage.setActivated(true);
+                    Snackbar.make(btnSendMessage, responce? R.string.sms_exito: R.string.sms_error , Snackbar.LENGTH_LONG).show();
+                    super.onPostExecute(o);
+                }
+
+                @Override
+                protected Object doInBackground(Object[] params) {
+
+
+                    responce =   repository.sendMessageOnline(
+                            userManager.user() != null ? userManager.user().getToken() : Constants.ID_NULL,
+                            mSeller.getId(),"Le han enviado un mensaje",message
+
+                    );
+                    return null;
+                }
+            };
+
+            mAsyncTask.execute();
+
+
+        }else {
+            Snackbar.make(btnSendMessage,"Error al enviar mensaje",Snackbar.LENGTH_LONG).show();
+        }
+    }
+
+
+
+    private void initSms(){
+        AsyncTask mA = new AsyncTask() {
+
+            @Override
+            protected void onPostExecute(Object o) {
+
+                if (UtilsFunction.isOnline(getContext())){
+                    //// TODO: 8/19/2017 ver como es que capturo la informacion del usuario actual y si esta logueado
+                    AsyncTask mAsyncTask = new AsyncTask() {
+
+                        UserConfiguration mConfig;
+                        @Override
+                        protected void onPostExecute(Object o) {
+
+                            if (mConfig!=null) {
+                                ((TextView) findViewById(R.id.help_text)).setText(
+                                        !mConfig.CanSendFree
+                                                ? getString(R.string.sms_1)+ mConfig.ValueToSendSms +" puntos)" //// TODO: 8/4/2017 buscar cuales son los N puntos
+                                                : "(tiene " + mConfig.MaxMessajesAllowed + " SMS libre de costo)");
+                            }
+
+                            findViewById(R.id.layout_send).setVisibility(View.VISIBLE);
+                            super.onPostExecute(o);
+                        }
+
+                        @Override
+                        protected Object doInBackground(Object[] params) {
+                            mConfig = repository.getUserConfiguration(userManager.user() != null ? userManager.user().getId() : Constants.ID_NULL);
+                            return null;
+                        }
+                    };
+
+                    if (userManager.user()!=null)
+                        mAsyncTask.execute();
+                    else {
+                        findViewById(R.id.layout_send).setVisibility(View.GONE);
+                    }
+
+
+
+                }
+
+                super.onPostExecute(o);
+            }
+
+            @Override
+            protected Object doInBackground(Object[] params) {
+                mSeller = repository.getSeller(productDetail.getSeller().getId());
+                return null;
+            }
+        };
+
+
+
+
+
+        mA.execute();
+
+
+
+
+    }
+
+    private Context getContext() {
+        return ProductDetailActivity.this;
+    }
+
+    @Inject
+    IUserManager userManager;
+
+    PartialSeller mSeller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,6 +281,8 @@ public class ProductDetailActivity extends BaseActivity implements PickDialog.IO
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        ButterKnife.bind(this);
+        findViewById(R.id.layout_send).setVisibility(View.GONE);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         idProduct = getIntent().getStringExtra(ProductRecyclerViewAdapter.ARG_PRODUCT_ID);
         nameSubcategory = getIntent().getStringExtra(ProductListActivityFragment.ARG_SUBCATEGORY_NAME);
@@ -408,6 +564,8 @@ public class ProductDetailActivity extends BaseActivity implements PickDialog.IO
                             .into(mainPhotoImageView);
                 }
             });
+
+            initSms();
         }
     }
 

@@ -10,8 +10,8 @@
     <!--<string name="llegoati_url" translatable="false">http://192.168.137.76:83/</string>-->
     <!--<string name="llegoati_service" translatable="false">http://192.168.137.76:83/nonrest/</string>-->
 
-    <!--<string name="llegoati_url" translatable="false">http://192.168.173.241:81/</string>-->
-    <!--<string name="llegoati_service" translatable="false">http://192.168.173.241:81/nonrest/</string>-->
+    <string name="llegoati_url" translatable="false">http://192.168.173.241:81/</string>
+    <string name="llegoati_service" translatable="false">http://192.168.173.241:81/nonrest/</string>
 
     <!--<string name="llegoati_url" translatable="false">http://192.168.42.217/</string>-->
     <!--<string name="llegoati_service" translatable="false">http://192.168.42. 217/nonrest/</string>-->
@@ -21,6 +21,5 @@
 
     <!--<string name="llegoati_url" translatable="false">http://192.168.43.153:83/</string>-->
     <!--<string name="llegoati_service" translatable="false">http://192.168.43.153:83/nonrest/</string>-->
-    <string name="llegoati_url" translatable="false">http://10.0.0.5/</string>
-    <string name="llegoati_service" translatable="false">http://10.0.0.5/nonrest/</string>
+
 </resources>
