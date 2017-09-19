@@ -31,50 +31,45 @@ public class UtilsFunction {
 
             try{
                     ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
-                    NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+                    //NetworkInfo networkInfo = cm.getActiveNetworkInfo();
 
-                    if (cm.getActiveNetworkInfo().isConnected()){
-                        return true;
+                    /*            final String dirWeb = "www.google.com";
+                                final int puerto = 80;
+                                TRY_CONNECTED = false;
+                                AsyncTask.execute(new Runnable() {
 
-            /*            final String dirWeb = "www.google.com";
-                        final int puerto = 80;
-                        TRY_CONNECTED = false;
-                        AsyncTask.execute(new Runnable() {
-
-                            @Override
-                            public void run() {
-                                try {
+                                    @Override
+                                    public void run() {
+                                        try {
 
 
-                                    Socket s = new Socket(dirWeb, puerto);
+                                            Socket s = new Socket(dirWeb, puerto);
 
-                                    if (s.isConnected()) {
-                                        CONNECTED = true;
-                                        TRY_CONNECTED = true;
+                                            if (s.isConnected()) {
+                                                CONNECTED = true;
+                                                TRY_CONNECTED = true;
 
-                                    }else {
-                                        CONNECTED = false;
-                                        TRY_CONNECTED = true;
+                                            }else {
+                                                CONNECTED = false;
+                                                TRY_CONNECTED = true;
+                                            }
+                                        }catch (Exception e){
+                                            CONNECTED = false;
+                                            TRY_CONNECTED = true;
+                                        }
                                     }
-                                }catch (Exception e){
-                                    CONNECTED = false;
-                                    TRY_CONNECTED = true;
-                                }
-                            }
-                        });
+                                });
 
-                        while (!TRY_CONNECTED)
-                            Thread.sleep(1000);
+                                while (!TRY_CONNECTED)
+                                    Thread.sleep(1000);
 
 
 
-                        return CONNECTED;
-                        //return networkInfo != null && networkInfo.getType() == ConnectivityManager.TYPE_WIFI;
-                        //return hasActiveInternetConnection();
-*/
-                    }else {
-                        return false;
-                    }
+                                return CONNECTED;
+                                //return networkInfo != null && networkInfo.getType() == ConnectivityManager.TYPE_WIFI;
+                                //return hasActiveInternetConnection();
+        */
+                return cm.getActiveNetworkInfo().isConnected();
                     //return false;
                 }catch (Exception e)
                 {

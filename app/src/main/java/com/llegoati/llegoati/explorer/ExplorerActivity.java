@@ -65,7 +65,7 @@ public class ExplorerActivity extends BaseActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mPreferencesFactory = PreferencesFactory.getInstance(this);
 
 
@@ -319,7 +319,7 @@ public class ExplorerActivity extends BaseActivity {
 
         if (patch.equals(parentPatch)) {
             //super.onBackPressed();
-            if(mPreferencesFactory.existDb())
+            //if(mPreferencesFactory.existDb())
                 super.onBackPressed();
 
         } else {

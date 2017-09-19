@@ -68,6 +68,7 @@ public class Constants {
     public static final int FLUJO_VENDEDOR_CLIENTE_START_SMS = 12;
     public static final String ID_NULL = "00000000-0000-0000-0000-000000000000";
     public static final int CONCEDER_PERMISOS = 1321;
+    public static final String SELLER_ID = "seller_id";
     public static int START_LIMIT = 0;
     public static int PAGE_INDEX = 0;
     public static String DB_DEFAULT = "CONSTANT";

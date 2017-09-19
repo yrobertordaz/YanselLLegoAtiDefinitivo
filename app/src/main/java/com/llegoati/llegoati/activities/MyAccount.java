@@ -87,7 +87,7 @@ public class MyAccount extends BaseActivity {
         ButterKnife.bind(this);
         initialization();
         setupLoteryCodeRecyclerView();
-        userManager.updateLoginInformation();
+        //userManager.updateLoginInformation();
         LoadLoteryCodesAsync loadLoteryCodesAsync = new LoadLoteryCodesAsync();
         loadLoteryCodesAsync.execute();
     }
@@ -150,8 +150,9 @@ public class MyAccount extends BaseActivity {
         @Override
         protected Void doInBackground(Void... params) {
             try {
-                tmp = repository.loteryCodeHistory(userManager.user().getId());
-
+                //userManager.updateLoginInformation();
+                if (userManager.user().getId()!=null)
+                    tmp = repository.loteryCodeHistory(userManager.user().getId());
             } catch (IOException e) {
                 e.printStackTrace();
             }

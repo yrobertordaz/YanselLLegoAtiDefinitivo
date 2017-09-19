@@ -185,9 +185,7 @@ public class HomeFragment extends Fragment {
             homePromotions = new ArrayList<>();
             sRLHomeProducts.setRefreshing(true);
             homeProductAdapter.clearElements();
-            if (repository instanceof RemoteRepository && !userManager.isUserPermanentAuthenticated() && ((RemoteRepository) repository).isConnectedToService(getResources().getString(R.string.llegoati_url))) {
-                homeProductAdapter.addItem(new HomeItem(BitmapUtils.resourceDrawableToBase64(getContext(), R.drawable.register), ProductHomeRecyclerViewAdapter.ViewType.REGISTER_OR_LOGIN));
-            }
+
             newsAdapter.clear();
             eventsAdapter.clear();
             news = new ArrayList<>();
@@ -198,14 +196,13 @@ public class HomeFragment extends Fragment {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
             if (error)
                 Toast.makeText(getContext(), "Ocurrió un error!", Toast.LENGTH_LONG).show();
             else {
                 for (ProductHomeItem item : homePromotions) {
                     homeProductAdapter.addItem(item);
+                    homeProductAdapter.notifyItemInserted(homeProductAdapter.getHomeItemList().indexOf(item));
                 }
-                homeProductAdapter.notifyDataSetChanged();
             }
             for (News item : news) {
                 newsAdapter.add(item);
@@ -222,7 +219,9 @@ public class HomeFragment extends Fragment {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-
+                if (repository instanceof RemoteRepository && !userManager.isUserPermanentAuthenticated() && ((RemoteRepository) repository).isConnectedToService(getResources().getString(R.string.llegoati_url))) {
+                    homeProductAdapter.addItem(new HomeItem(BitmapUtils.resourceDrawableToBase64(getContext(), R.drawable.register), ProductHomeRecyclerViewAdapter.ViewType.REGISTER_OR_LOGIN));
+                }
                 homeItems = repository.promotions();
                 for (final ProductItem item : homeItems) {
                     ProductDetail itemDetail = repository.productDetail(item.getProductId());

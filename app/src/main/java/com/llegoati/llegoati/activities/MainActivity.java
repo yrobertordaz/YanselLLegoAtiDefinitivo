@@ -81,6 +81,9 @@ public class MainActivity extends BaseActivity
     @Bind(R.id.tv_user_email)
     AppCompatTextView userEmail;
 
+
+
+
     FrameLayout flAdds;
 
     ImageView ivClose;
@@ -380,7 +383,7 @@ public class MainActivity extends BaseActivity
         int id = item.getItemId();
         if (id == R.id.nav_my_account) {
 
-            if (userManager.isUserPermanentAuthenticated() && userManager.user().getEmail() != null) {
+            if (userManager.user()!=null && userManager.isUserPermanentAuthenticated() && userManager.user().getEmail() != null) {
                 intent[0] = new Intent(this, MyAccount.class);
                 startActivity(intent[0]);
                 return true;
@@ -389,25 +392,29 @@ public class MainActivity extends BaseActivity
             }
 
         } else if (id == R.id.nav_change_password) {
-            if (userManager.isUserPermanentAuthenticated() && userManager.user().getEmail() != null) {
+            if (userManager.user()!=null && userManager.isUserPermanentAuthenticated() && userManager.user().getEmail() != null) {
                 intent[0] = new Intent(this, ChangePasswordActivity.class);
                 startActivity(intent[0]);
                 return true;
             } else
                 snackbar.show();
         } else if (id == R.id.nav_check_lotery_code) {
-            if (userManager.isUserPermanentAuthenticated() && userManager.user().getEmail() != null) {
+            if (userManager.user()!=null && userManager.isUserPermanentAuthenticated() && userManager.user().getEmail() != null) {
                 intent[0] = new Intent(this, CheckoutLoteryCodeActivity.class);
                 startActivity(intent[0]);
                 return true;
             } else
                 snackbar.show();
         }
-//        else if (id == R.id.nav_edit_account) {
-//            intent = new Intent(this, ModifyAccountActivity.class);
-//            startActivityForResult(intent, MODIFY_CODE);
-//            return true;
-//        }
+     /*    else if (id == R.id.nav_edit_account) {
+           if (userManager.user()!=null && userManager.isUserPermanentAuthenticated() && userManager.user().getEmail() != null) {
+                intent[0] = new Intent(this, ModifyAccountActivity.class);
+                startActivityForResult(intent[0], MODIFY_CODE);
+                return true;
+            } else
+                snackbar.show();
+
+        }*/
 
         else if (id == R.id.nav_information) {
             intent[0] = new Intent(this, InformationActivity.class);
@@ -418,7 +425,7 @@ public class MainActivity extends BaseActivity
             startActivity(intent[0]);
             return true;
         } else if (id == R.id.nav_contacts) {
-            if (userManager.isUserPermanentAuthenticated() && userManager.user().getEmail() != null) {
+            if (userManager.user()!=null && userManager.isUserPermanentAuthenticated() && userManager.user().getEmail() != null) {
                 intent[0] = new Intent(this, ContactsActivity.class);
                 startActivity(intent[0]);
                 return true;
@@ -426,7 +433,7 @@ public class MainActivity extends BaseActivity
                 snackbar.show();
             }
         } else if (id == R.id.nav_request_history) {
-            if (userManager.isUserPermanentAuthenticated() && userManager.user().getEmail() != null) {
+            if (userManager.user()!=null && userManager.isUserPermanentAuthenticated() && userManager.user().getEmail() != null) {
                 intent[0] = new Intent(this, RequestHistoryActivity.class);
                 startActivity(intent[0]);
                 return true;

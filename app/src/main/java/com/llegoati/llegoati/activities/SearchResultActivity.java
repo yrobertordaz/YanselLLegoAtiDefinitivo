@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -21,6 +22,7 @@ import com.llegoati.llegoati.controls.EndlessRecyclerViewScrollListener;
 import com.llegoati.llegoati.dialogs.FilterDialog;
 import com.llegoati.llegoati.infrastructure.abstracts.IRepository;
 import com.llegoati.llegoati.infrastructure.models.ProductItem;
+import com.llegoati.llegoati.smsmodulo.Utils.Constants;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -91,8 +93,7 @@ public class SearchResultActivity extends BaseActivity implements SwipeRefreshLa
     private void handleIntent(Intent intent) {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             query = intent.getStringExtra(SearchManager.QUERY);
-//            this.setTitle(getResources().getString(R.string.search_result_title, query));
-
+            //this.setTitle(getResources().getString(R.string.search_result_title, query));
             searchAsyncTask = new SearchAsyncTask();
             searchAsyncTask.execute(
                     query,
@@ -103,7 +104,22 @@ public class SearchResultActivity extends BaseActivity implements SwipeRefreshLa
                     null,
                     null
             );
-        }
+        }else
+            if (intent.getStringExtra(Constants.SELLER_ID)!= null){
+
+                this.artisanId = intent.getStringExtra(Constants.SELLER_ID);
+
+                searchAsyncTask = new SearchAsyncTask();
+                searchAsyncTask.execute(
+                        query,
+                        "0",
+                        PAGE_SIZE.toString(),
+                        Boolean.valueOf(false).toString(),
+                        intent.getStringExtra(Constants.SELLER_ID),
+                        null,
+                        null
+                );
+            }
     }
 
     @Override

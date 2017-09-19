@@ -99,24 +99,10 @@ public class SplashActivity extends BaseActivity {
             case Constants.CONCEDER_PERMISOS: {
                 int count = 0 ;
                 if(grantResults.length>0) {
-                    for (int i = 0; i < grantResults.length; i++) {
-                        if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-
-                            count++;
-                        } else {
-                            break;
-                        }
-                    }
-
-                    if (count == grantResults.length) {
-                        permissionsGranted = true;
-                        init();
+                    if (!UtilsFunction.chekPermission(this)){
+                        UtilsFunction.chekPermissionsToUser(this);
                     }else {
-                        Toast.makeText(SplashActivity.this,
-                                "Debe conceder todos los permisos para continuar",
-                                Toast.LENGTH_SHORT).show();
-                        UtilsFunction.chekPermissionsToUser(SplashActivity.this);
-                        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+                        init();
                     }
 
                 }
