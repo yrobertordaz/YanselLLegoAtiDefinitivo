@@ -67,14 +67,6 @@ public class SearchResultActivity extends BaseActivity implements SwipeRefreshLa
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    @Override
-    protected void onResume() {
-        if (MainActivity.goShoppingCart) {
-            finish();
-        }
-        super.onResume();
-    }
-
     private void configureRecyclerView() {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         rvProductResults.setLayoutManager(gridLayoutManager);
