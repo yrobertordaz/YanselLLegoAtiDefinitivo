@@ -134,6 +134,14 @@ public class SearchResultActivity extends BaseActivity implements SwipeRefreshLa
     }
 
     @Override
+    protected void onResume() {
+        if (MainActivity.goShoppingCart) {
+            finish();
+        }
+        super.onResume();
+    }
+
+    @Override
     public void onRefresh() {
         swSearchResult.setRefreshing(false);
     }

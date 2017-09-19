@@ -55,7 +55,6 @@ public class ProductListActivity extends BaseActivity implements FilterDialog.IO
     private String provinceName;
     private Boolean withoutMessenger;
     private FilterDialog filterDialog;
-    private String query;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -184,6 +183,14 @@ public class ProductListActivity extends BaseActivity implements FilterDialog.IO
         outState.putString(ProductListActivityFragment.ARG_SUBCATEGORY_NAME, subcategory);
         outState.putString(ProductListActivityFragment.ARG_SUBCATEGORY_ID, subcategoryId);
         super.onSaveInstanceState(outState, outPersistentState);
+    }
+
+    @Override
+    protected void onResume() {
+        if (MainActivity.goShoppingCart) {
+            this.finish();
+        }
+        super.onResume();
     }
 
     /**
