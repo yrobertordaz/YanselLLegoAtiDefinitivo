@@ -10,6 +10,7 @@
         style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clickable="true"
         card_view:cardUseCompatPadding="true">
 
         <RelativeLayout

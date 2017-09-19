@@ -17,6 +17,7 @@ public class SearchResultViewHolder extends RecyclerView.ViewHolder {
     public final ImageView ivCalifier;
     public final TextView tvProductPrice;
     public final TextView tvSubcategoryName;
+    public final View mView;
 
     public SearchResultViewHolder(View itemView) {
         super(itemView);
@@ -24,5 +25,6 @@ public class SearchResultViewHolder extends RecyclerView.ViewHolder {
         ivCalifier = (ImageView) itemView.findViewById(R.id.iv_califier);
         tvProductPrice = (TextView) itemView.findViewById(R.id.tv_subcategory_price);
         tvSubcategoryName = (TextView) itemView.findViewById(R.id.tv_subcategory_name);
+        mView = itemView.findViewById(R.id.content);
     }
 }

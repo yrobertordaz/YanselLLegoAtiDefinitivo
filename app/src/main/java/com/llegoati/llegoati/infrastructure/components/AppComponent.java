@@ -14,7 +14,6 @@ import com.llegoati.llegoati.activities.ProductDetailActivity;
 import com.llegoati.llegoati.activities.ProductListActivity;
 import com.llegoati.llegoati.activities.RegisterActivity;
 import com.llegoati.llegoati.activities.RequestDetailActivity;
-import com.llegoati.llegoati.activities.SearchActivity;
 import com.llegoati.llegoati.activities.SearchResultActivity;
 import com.llegoati.llegoati.activities.SellerListActivity;
 import com.llegoati.llegoati.activities.SellerProfileActivity;
@@ -141,5 +140,4 @@ public interface AppComponent {
 
     void inject(SearchResultActivity searchResultActivity);
 
-    void inject(SearchActivity searchActivity);
 }
