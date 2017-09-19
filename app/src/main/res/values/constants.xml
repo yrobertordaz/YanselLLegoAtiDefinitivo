@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--<string name="llegoati_url" translatable="false">http://10.24.24.234/</string>-->
-    <!--<string name="llegoati_service" translatable="false">http://10.24.24.234/nonrest/</string>-->
+    <string name="llegoati_url" translatable="false">http://10.24.24.234/</string>
+    <string name="llegoati_service" translatable="false">http://10.24.24.234/nonrest/</string>
+
+    <!--<string name="llegoati_url" translatable="false">http://llegotech.com/</string>-->
+    <!--<string name="llegoati_service" translatable="false">http://llegotech.com/nonrest/</string>-->
 
     <!--<string name="llegoati_url" translatable="false">http://192.168.137.1:9090/</string>
     <string name="llegoati_service" translatable="false">http://192.168.137.1:9090/nonrest/</string>-->
@@ -10,8 +13,8 @@
     <!--<string name="llegoati_url" translatable="false">http://192.168.137.76:83/</string>-->
     <!--<string name="llegoati_service" translatable="false">http://192.168.137.76:83/nonrest/</string>-->
 
-    <string name="llegoati_url" translatable="false">http://192.168.173.241:81/</string>
-    <string name="llegoati_service" translatable="false">http://192.168.173.241:81/nonrest/</string>
+    <!--<string name="llegoati_url" translatable="false">http://192.168.173.241:81/</string>-->
+    <!--<string name="llegoati_service" translatable="false">http://192.168.173.241:81/nonrest/</string>-->
 
     <!--<string name="llegoati_url" translatable="false">http://192.168.42.217/</string>-->
     <!--<string name="llegoati_service" translatable="false">http://192.168.42. 217/nonrest/</string>-->

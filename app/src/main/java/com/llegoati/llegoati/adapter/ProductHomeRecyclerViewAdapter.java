@@ -43,11 +43,11 @@ public class ProductHomeRecyclerViewAdapter extends RecyclerView.Adapter<Recycle
 
     public void addItem(HomeItem item) {
         homeItemList.add(item);
-        try {
-            this.notifyItemInserted(homeItemList.indexOf(item));
-        } catch (IllegalStateException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            this.notifyItemInserted(homeItemList.indexOf(item));
+//        } catch (IllegalStateException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public void clearElements() {

@@ -361,7 +361,7 @@ public class ProductDetailActivity extends BaseActivity implements PickDialog.IO
             swpProductDetail.setRefreshing(false);
             llcProductDetailLayout.setVisibility(View.VISIBLE);
             productImageBox.setVisibility(View.VISIBLE);
-            addToCart.setVisibility(View.VISIBLE);
+            famShoppingCart.setVisibility(View.VISIBLE);
             super.onPostExecute(aVoid);
         }
 
