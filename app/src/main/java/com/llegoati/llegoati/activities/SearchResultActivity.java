@@ -5,9 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -125,6 +123,14 @@ public class SearchResultActivity extends BaseActivity implements SwipeRefreshLa
     @Override
     protected void onNewIntent(Intent intent) {
         handleIntent(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        if (MainActivity.goShoppingCart) {
+            finish();
+        }
+        super.onResume();
     }
 
     @Override
